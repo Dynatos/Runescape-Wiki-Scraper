@@ -35,4 +35,3 @@ Page function breakdown:
 
 # TODO
   Add functionality to collect all item icons so that all necessary data can be collected to update https://jasonwortley.com/runescape
-  ? Create a browser UI
