@@ -10,27 +10,36 @@ Live tools: https://jasonwortley.com/runescape, https://jasonwortley.com/runesca
 This tool uses the console for relevant output, rather than having a web UI.
 
 # Usage
-To get started with this app simply clone the repo down, then run 'node index.js' in the command line (I used Node Version 10.11.0 and NPM Version 6.4.1, but other version may work as well). The app will log 'Listening on port XXXX' when successfully started. From there make a request to localhost:XXXX (port number) followed by any of the following: 
+To get started with this app simply clone the repo down, then run `node index.js` in the command line.
+
+*Note: I used Node Version 10.11.0 and NPM Version 6.4.1, but other versions may work as well.*
+
+The app will log 'Listening on port XXXX' when successfully started. 
+
+From there make a request to localhost:XXXX (port number) followed by any of the following:
+```
 /getPartialURIForEveryItem, /getItemDataFromLinks, /removeItemsWithoutStats
+```
 (Example browser URL: 'localhost:3002/getPartialURIForEveryItem')
 
-Page function breakdown:
 
-  /getPartialURIForEveryItem:
-    Hits the first of our wiki pages that contain 200 links for items in the game, listed alphabetically. Additional requests are made
-    as long as a 'next' button is found on the page. The anchors are all pushed into a single array, and that array is written to the
-    disk as JSON when all links have been collected.
-    Wiki link containing all the anchors: https://oldschoolrunescape.fandom.com/wiki/Category:Items
+### HTTP Endpoint Breakdown:
+
+  #### `/getPartialURIForEveryItem`
+  Hits the first of our wiki pages that contain 200 links for items in the game, listed alphabetically. Additional requests are made
+  as long as a 'next' button is found on the page. The anchors are all pushed into a single array, and that array is written to the
+  disk as JSON when all links have been collected.
+  Wiki link containing all the anchors: https://oldschoolrunescape.fandom.com/wiki/Category:Items
     
     
-  /getItemDataFromLinks:
-    Uses the JSON array made by /getPartialURIForEveryItem. Makes a request for each link in the array, collects the stat data, and
-    writes the data as JSON to the disk when all item data has been collected.
+  #### `/getItemDataFromLinks`
+  Uses the JSON array made by /getPartialURIForEveryItem. Makes a request for each link in the array, collects the stat data, and
+  writes the data as JSON to the disk when all item data has been collected.
     
     
-  /removeItemsWithoutStats:
-    Cleans up the data collected from /getItemDataFromLinks. Loops through all item stat data objects looking for items with only 0s for 
-    stats, filters them, and writes another file to the disk containing only the useful item data.
+  #### `/removeItemsWithoutStats`
+  Cleans up the data collected from /getItemDataFromLinks. Loops through all item stat data objects looking for items with only 0s for 
+  stats, filters them, and writes another file to the disk containing only the useful item data.
 
 
 # TODO
