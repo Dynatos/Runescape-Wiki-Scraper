@@ -20,7 +20,7 @@ From there make a request to localhost:XXXX (port number) followed by any of the
 ```
 /getPartialURIForEveryItem, /getItemDataFromLinks, /removeItemsWithoutStats
 ```
-(Example browser URL: 'localhost:3002/getPartialURIForEveryItem')
+(Example URL: 'localhost:3002/getPartialURIForEveryItem')
 
 
 ### HTTP Endpoint Breakdown:
@@ -29,6 +29,7 @@ From there make a request to localhost:XXXX (port number) followed by any of the
   Hits the first of our wiki pages that contain 200 links for items in the game, listed alphabetically. Additional requests are made
   as long as a 'next' button is found on the page. The anchors are all pushed into a single array, and that array is written to the
   disk as JSON when all links have been collected.
+
   Wiki link containing all the anchors: https://oldschoolrunescape.fandom.com/wiki/Category:Items
     
     
