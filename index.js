@@ -6,12 +6,25 @@ const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
-//variables
-const allItemsURI = 'https://oldschoolrunescape.fandom.com/wiki/Category:Items'; // Wiki page containing links to every item's full page, where stat values are stored
-const baseURI = 'https://oldschoolrunescape.fandom.com'; // Base URI for the wiki, item names can be URI encoded and concatenated with this link to make valid, scrapeable links
-const allItemData = require('./osrs-item-data-no-0s.min.json'); // Temporary import for restructuring of data TODO: cleanup pipeline to create properly formatted JSON with a single function
-const allItemLinkArray = require('./osrs-wiki-links-all-items.json'); // JSON Array containing valid formatted links to the wiki pages for every item 
-const allItemLinkArrayLength = allItemLinkArray.length; // multi-use constant defined here for reduced performance overhead
+/////////////////////////////////////////////////////////////////
+////////////////////////////variables////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+const allItemsURI = 'https://oldschoolrunescape.fandom.com/wiki/Category:Items'; 
+// Wiki page containing links to every item's full page, where stat values are stored
+
+const baseURI = 'https://oldschoolrunescape.fandom.com'; 
+// Base URI for the wiki, item names can be URI encoded and concatenated with this link to make valid, scrapeable links
+
+const allItemData = require('./osrs-item-data-no-0s.min.json'); 
+// Temporary import for restructuring of data TODO: cleanup pipeline to create properly formatted JSON with a single function
+
+const allItemLinkArray = require('./osrs-wiki-links-all-items.json'); 
+// JSON Array containing valid formatted links to the wiki pages for every item 
+
+const allItemLinkArrayLength = allItemLinkArray.length; 
+// multi-use constant defined here for reduced performance overhead
+
 const anchorLinkArray = []; 
 const itemStatDataObjectArray = [];
 const indexesThatHaveBeenRequested = [];
