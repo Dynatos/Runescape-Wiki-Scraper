@@ -37,11 +37,11 @@ For the deprecated scraper:
 (Example URL: 'localhost:3002/getPartialURIForEveryItem')
 
 
-##Official scraper
-###HTTP Endpoint Breakdown:
+## Official scraper
+### HTTP Endpoint Breakdown:
 
-	####`/getData`
-	Iterates over the 'allItemURIArr' array, making a request to each of the URIs present. Parses the returned page, extracts relevant values, stores them, and writes JSON to the disk
+  #### `/getData`
+  Iterates over the 'allItemURIArr' array, making a request to each of the URIs present. Parses the returned page, extracts relevant values, stores them, and writes JSON to the disk
 
 ## Deprecated scraper
 ### HTTP Endpoint Breakdown:
