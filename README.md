@@ -1,28 +1,49 @@
 # Runescape-Wiki-Scraper
-This app is an Express server that uses Request and Cheerio to scrape data from the Oldschool Runescape Wiki. The data is automatically formatted into objects, and written to the disk as JSON.
+This app uses an Express server to scrape data from both the official Oldschool Runescape Wiki and the deprecated Fandom Wiki. The data is formatted into objects and written to the disk as JSON.
 
-The wiki that this App is designed to scrape from:
+The official wiki:
+https://oldschool.runescape.wiki/
+
+The deprecated wiki:
 https://oldschoolrunescape.fandom.com/wiki/Old_School_RuneScape_Wiki
 
 I created this tool so that I could easily collect updated stat values whenever Runescape is updated. The retrieved data is used in the Runescape tools found on my personal website. 
 Source code of the application that utilizes the data: https://github.com/Dynatos/personal-website
-Live tools: https://jasonwortley.com/runescape, https://jasonwortley.com/runescape_max_hit
-This tool uses the console for relevant output, rather than having a web UI.
+Live tools: 
+https://jasonwortley.com/runescape 
+https://jasonwortley.com/runescape_max_hit
+This tool has no browser UI and uses the console for relevant output.
 
 # Usage
-To get started with this app simply clone the repo down, then run `node index.js` in the command line.
+To get started with this app simply clone the repo down, then in the command line run `npm start` for the official wiki scraper, or `npm run start-unofficial` for the deprecated scraper.
 
 *Note: I used Node Version 10.11.0 and NPM Version 6.4.1, but other versions may work as well.*
 
 The app will log 'Listening on port XXXX' when successfully started. 
 
-From there make a request to localhost:XXXX (port number) followed by any of the following:
+Finally, make a request to localhost:XXXX followed by:
+
+For the official scraper:
+```
+/getData
+```
+
+For the deprecated scraper:
 ```
 /getPartialURIForEveryItem, /getItemDataFromLinks, /removeItemsWithoutStats
 ```
+
+
 (Example URL: 'localhost:3002/getPartialURIForEveryItem')
 
 
+##Official scraper
+###HTTP Endpoint Breakdown:
+
+	####`/getData`
+	Iterates over the 'allItemURIArr' array, making a request to each of the URIs present. Parses the returned page, extracts relevant values, stores them, and writes JSON to the disk
+
+## Deprecated scraper
 ### HTTP Endpoint Breakdown:
 
   #### `/getPartialURIForEveryItem`
