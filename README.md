@@ -2,16 +2,25 @@
 This app uses an Express server to scrape data from both the official Oldschool Runescape Wiki and the deprecated Fandom Wiki. The data is formatted into objects and written to the disk as JSON.
 
 The official wiki:
+
 https://oldschool.runescape.wiki/
 
 The deprecated wiki:
+
 https://oldschoolrunescape.fandom.com/wiki/Old_School_RuneScape_Wiki
 
-I created this tool so that I could easily collect updated stat values whenever Runescape is updated. The retrieved data is used in the Runescape tools found on my personal website. 
-Source code of the application that utilizes the data: https://github.com/Dynatos/personal-website
+I created this tool so that I could easily collect up-to-date stat values whenever Runescape is updated. The retrieved data is used in the Runescape tools found on my personal website.
+
+Source code of the application that utilizes the data: 
+
+https://github.com/Dynatos/personal-website
+
 Live tools: 
+
 https://jasonwortley.com/runescape 
+
 https://jasonwortley.com/runescape_max_hit
+
 This tool has no browser UI and uses the console for relevant output.
 
 # Usage
